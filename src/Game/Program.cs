@@ -1,10 +1,10 @@
 ﻿using Zinc;
+using MDH;
 
-Engine.Run(new Engine.RunOptions(1920,1080,"zinc", () => {
-        new Shape(new Color(Palettes.ENDESGA[9]))
-        {
-            X = Engine.Width / 2f,
-            Y = Engine.Height / 2f,
-        };
-    }
+Engine.Run(new Engine.RunOptions(1920,1080,"mdh",() =>
+	{
+		var scene = new Dungeon();
+		scene.Mount(0);
+		scene.Load(() => scene.Start());
+	}
 ));
