@@ -5,6 +5,7 @@ using Arch.CommandBuffer;
 using Arch.Core;
 using Arch.Core.Extensions;
 using Zinc.Core;
+using Zinc;
 using Zinc.Internal.Sokol;
 using Volatile;
 
@@ -128,7 +129,7 @@ executed:{Executed}`""]{activeNodeString}";
                     lastDeathReapIndex = deathReapEventCheck.Index + 1; //we add one because when we emit outselves that is the new index
                     
                     #region Emit Death Reap
-                    dungeon.Logic.MetaEvents.DeathReap.Emit(Logic.RootEvent, postExecution: e =>
+                    MDH.Logic.MetaEvents.DeathReap.Emit(Logic.RootEvent, postExecution: e =>
                     {
                         foreach (var c in Dungeon.Track.Cards.Where(x => x.Value != null && x.Value.Health <= 0))
                         {
@@ -139,7 +140,7 @@ executed:{Executed}`""]{activeNodeString}";
                     {
                         if (Dungeon.Track.HasEmptyPositions(out var pos))
                         {
-                            dungeon.Logic.MetaEvents.DrawingMultipleCards.Emit(Logic.RootEvent, postExecution: e =>
+                            MDH.Logic.MetaEvents.DrawingMultipleCards.Emit(Logic.RootEvent, postExecution: e =>
                             {
                                 for (int i = 0; i < pos.Count; i++)
                                 {
@@ -153,7 +154,7 @@ executed:{Executed}`""]{activeNodeString}";
                                 }
                                 else
                                 {
-                                    dungeon.Logic.MetaEvents.UpdateCardPositions.Emit(Logic.RootEvent);
+                                    MDH.Logic.MetaEvents.UpdateCardPositions.Emit(Logic.RootEvent);
                                 }
                             });
                         }

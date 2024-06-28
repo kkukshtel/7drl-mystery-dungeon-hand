@@ -8,24 +8,20 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <AdditionalFiles Include="..\..\res\**\*"/>
-    <Content Include="..\..\res\**\*">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Zinc\Zinc.csproj" />
-    <!-- //fix these -->
-    <!-- <ProjectReference Include="..\Depot.SourceGenerator\Depot.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>
-    <ProjectReference Include="..\Zinc.Magic\Zinc.Magic\Zinc.Magic.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false"/> -->
   </ItemGroup>
 
   <ItemGroup>
-    <AdditionalFiles Include="res\**\*"/>
+    <AdditionalFiles Include="res\dungeon.dpo" GenerateDepotSource="true" />
+    <!-- <AdditionalFiles Include="res\**\*"/> -->
     <Content Include="res\**\*">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+
+      <PropertyGroup>
+        <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+    </PropertyGroup>
+
 
 </Project>
